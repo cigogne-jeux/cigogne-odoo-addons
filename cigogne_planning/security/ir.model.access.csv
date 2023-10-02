@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+schedule_user,Schedule User,model_schedule_slot,group_schedule_user,1,0,0,0
+schedule_manager,Schedule Manager,model_schedule_slot,group_schedule_manager,1,1,1,1
+schedule_template_manager,Schedule Template Manager,model_schedule_template,group_schedule_manager,1,1,1,1
+schedule_template_type_manager,Schedule Template Type Manager,model_schedule_template_type,group_schedule_manager,1,1,1,1

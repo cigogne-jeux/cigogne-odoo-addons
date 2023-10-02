@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 La cigogne - Bar à jeux
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0) -->
+<odoo>
+
+    <record id="schedule_template_view_form" model="ir.ui.view">
+        <field name="name">schedule.template.view.form</field>
+        <field name="model">schedule.template</field>
+        <field name="arch" type="xml">
+            <form string="Schedule">
+                <header />
+                <sheet>
+                    <field name="active" invisible="1" />
+                    <div class="oe_button_box" name="button_box" />
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"
+                    />
+                    <div class="oe_title">
+                        <label for="name" string="Name" />
+                        <h1>
+                            <div class="d-flex">
+                                <field
+                                    class="text-break"
+                                    name="name"
+                                    placeholder="e.g. Bar slot"
+                                />
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="start" />
+                            <field name="end" />
+                            <field name="allday" />
+                        </group>
+                        <group>
+                            <field name="template_id" />
+                            <field name="user_id" />
+                            <field name="capacity" />
+                            <field
+                                name="participant_ids"
+                                widget="many2many_tags_avatar"
+                            />
+                        </group>
+                        <label for="comment" string="Comment" />
+                        <field name="comment" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="schedule_template_view_tree" model="ir.ui.view">
+        <field name="name">schedule.template.view.tree</field>
+        <field name="model">schedule.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="start" />
+                <field name="end" />
+                <field name="user_id" />
+                <field name="participant_ids" widget="many2many_tags_avatar" />
+                <field name="template_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="schedule_template_calendar_view" model="ir.ui.view">
+        <field name="name">schedule.template.view.calendar</field>
+        <field name="model">schedule.template</field>
+        <field name="arch" type="xml">
+            <calendar
+                string="Planning"
+                date_start="start"
+                date_stop="end"
+                color="template_id"
+                quick_add="False"
+                all_day="allday"
+                event_open_popup="True"
+                hide_time="1"
+            >
+                <field name="template_id" filters="True" />
+                <field name="user_id" />
+                <field name="capacity" />
+                <field name="participant_ids" widget="many2many_tags_avatar" />
+                <field name="comment" />
+            </calendar>
+        </field>
+    </record>
+
+    <record id="schedule_template_view_search" model="ir.ui.view">
+        <field name="name">schedule.template.view.search</field>
+        <field name="model">schedule.template</field>
+        <field name="arch" type="xml">
+            <search string="Search Schedule">
+                <field name="template_id" />
+                <field name="name" />
+                <field name="participant_ids" />
+                <field name="user_id" />
+                <separator />
+                <filter
+                    string="Archived"
+                    name="inactive"
+                    domain="[('active', '=', False)]"
+                />
+                <group expand="1" string="Group By">
+                    <filter
+                        string="Template"
+                        name="template"
+                        context="{'group_by':'template_id'}"
+                    />
+                    <filter
+                        string="Organizer"
+                        name="organizer"
+                        context="{'group_by':'user_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="schedule_template_action" model="ir.actions.act_window">
+        <field name="name">Template</field>
+        <field name="res_model">schedule.template</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="search_view_id" ref="schedule_template_view_search" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new template
+            </p>
+        </field>
+        <field
+            name="context"
+            eval="{
+                'initial_date': '2020-01-06',
+            }"
+        />
+    </record>
+
+    <menuitem
+        id="planning_template_menu"
+        parent="planning_menu_root"
+        action="schedule_template_action"
+        sequence="1"
+    />
+
+    <record id="schedule_template_type_view_tree" model="ir.ui.view">
+        <field name="name">schedule.template.type.view.tree</field>
+        <field name="model">schedule.template.type</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" />
+                <field name="date" />
+                <button type="object" name="plan" string="Plan" class="oe_highlight" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="schedule_template_type_action" model="ir.actions.act_window">
+        <field name="name">Template Type</field>
+        <field name="res_model">schedule.template.type</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new template type
+            </p>
+        </field>
+        <field
+            name="context"
+            eval="{
+                'initial_date': '2020-01-06',
+            }"
+        />
+    </record>
+
+    <menuitem
+        id="planning_template_type_menu"
+        parent="planning_menu_root"
+        action="schedule_template_type_action"
+        sequence="2"
+    />
+
+</odoo>

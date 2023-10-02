@@ -1,0 +1,6 @@
+.modal .modal-dialog .o_form_view .o_FormRenderer_chatterContainer {
+    display: block !important;
+}
+.modal-lg {
+    max-width: 1280px;
+}

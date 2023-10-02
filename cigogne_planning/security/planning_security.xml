@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 La cigogne - Bar à jeux
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0) -->
+<data>
+    <record id="schedule_category" model="ir.module.category">
+        <field name="name">Planning</field>
+    </record>
+
+    <record id="group_schedule_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="schedule_category" />
+        <field name="comment">The user will be able to register to schedules.</field>
+    </record>
+
+    <record id="group_schedule_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="schedule_category" />
+        <field name="implied_ids" eval="[(4, ref('group_schedule_user'))]" />
+        <field name="comment">The user will be able to create new schedules.</field>
+        <field name="users" eval="[(4, ref('base.user_root'))]" />
+    </record>
+</data>

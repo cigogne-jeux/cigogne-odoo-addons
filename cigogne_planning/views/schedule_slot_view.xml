@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 La cigogne - Bar à jeux
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0) -->
+<odoo>
+
+    <record id="schedule_slot_view_form" model="ir.ui.view">
+        <field name="name">schedule.slot.view.form</field>
+        <field name="model">schedule.slot</field>
+        <field name="arch" type="xml">
+            <form string="Schedule">
+                <field name="is_participant" invisible="1" />
+                <field name="state" invisible="1" />
+                <header>
+                    <button
+                        type="object"
+                        name="participate"
+                        string="Participate"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('is_participant', '=', True), ('state', '=', 'full')]}"
+                    />
+                    <button
+                        type="object"
+                        name="quit"
+                        string="Quit"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('is_participant', '!=', True)]}"
+                    />
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <field name="active" invisible="1" />
+                    <div class="oe_button_box" name="button_box" />
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"
+                    />
+                    <div class="oe_title">
+                        <label for="name" string="Name" />
+                        <h1>
+                            <div class="d-flex">
+                                <field
+                                    class="text-break"
+                                    name="name"
+                                    placeholder="e.g. Bar slot"
+                                />
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="start" />
+                            <field name="end" />
+                            <field name="allday" />
+                        </group>
+                        <group>
+                            <field name="user_id" />
+                            <field name="capacity" />
+                            <field
+                                name="participant_ids"
+                                widget="many2many_tags_avatar"
+                            />
+                        </group>
+                        <label for="comment" string="Comment" />
+                        <field name="comment" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="schedule_slot_view_tree" model="ir.ui.view">
+        <field name="name">schedule.slot.view.tree</field>
+        <field name="model">schedule.slot</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="start" />
+                <field name="end" />
+                <field name="user_id" />
+                <field name="participant_ids" widget="many2many_tags_avatar" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="schedule_slot_calendar_view" model="ir.ui.view">
+        <field name="name">schedule.slot.view.calendar</field>
+        <field name="model">schedule.slot</field>
+        <field name="arch" type="xml">
+            <calendar
+                string="Planning"
+                date_start="start"
+                date_stop="end"
+                color="state"
+                quick_add="False"
+                all_day="allday"
+                event_open_popup="True"
+                hide_time="1"
+            >
+                <field name="user_id" />
+                <field name="capacity" />
+                <field name="state" filters="True" />
+                <field name="participant_ids" widget="many2many_tags_avatar" />
+                <field name="comment" />
+            </calendar>
+        </field>
+    </record>
+
+    <record id="schedule_slot_view_search" model="ir.ui.view">
+        <field name="name">schedule.slot.view.search</field>
+        <field name="model">schedule.slot</field>
+        <field name="arch" type="xml">
+            <search string="Search Schedule">
+                <field name="name" />
+                <field name="participant_ids" />
+                <field name="user_id" />
+                <filter
+                    name="my_schedule"
+                    string="My schedule"
+                    domain="[('is_participant', '=', True)]"
+                />
+                <separator />
+                <filter
+                    string="Archived"
+                    name="inactive"
+                    domain="[('active', '=', False)]"
+                />
+                <group expand="1" string="Group By">
+                    <filter
+                        string="Organizer"
+                        name="organizer"
+                        context="{'group_by':'user_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="schedule_slot_action" model="ir.actions.act_window">
+        <field name="name">Planning</field>
+        <field name="res_model">schedule.slot</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="search_view_id" ref="schedule_slot_view_search" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new schedule
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="planning_menu_root"
+        name="Planning"
+        web_icon="cigogne_planning,static/description/icon.png"
+        groups="cigogne_planning.group_schedule_user"
+    />
+
+    <menuitem
+        id="planning_list_menu"
+        parent="planning_menu_root"
+        action="schedule_slot_action"
+        sequence="0"
+    />
+
+</odoo>
