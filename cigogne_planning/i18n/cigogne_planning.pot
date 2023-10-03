@@ -72,6 +72,7 @@ msgstr ""
 #. module: cigogne_planning
 #: model:ir.model.fields.selection,name:cigogne_planning.selection__schedule_slot__state__available
 #: model:ir.model.fields.selection,name:cigogne_planning.selection__schedule_template__state__available
+#: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_search
 msgid "Available"
 msgstr ""
 
@@ -124,6 +125,16 @@ msgid "Date"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__deadline
+msgid "Deadline"
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,help:cigogne_planning.field_schedule_template_type__deadline
+msgid "Deadline (in days) before shedule when it is still possible to quit"
+msgstr ""
+
+#. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__display_name
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__display_name
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__display_name
@@ -157,6 +168,7 @@ msgstr ""
 #. module: cigogne_planning
 #: model:ir.model.fields.selection,name:cigogne_planning.selection__schedule_slot__state__full
 #: model:ir.model.fields.selection,name:cigogne_planning.selection__schedule_template__state__full
+#: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_search
 msgid "Full"
 msgstr ""
 
@@ -213,6 +225,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__is_participant
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__is_participant
 msgid "Is Participant"
+msgstr ""
+
+#. module: cigogne_planning
+#. odoo-python
+#: code:addons/cigogne_planning/models/schedule_slot.py:0
+#, python-format
+msgid "It's no longer possible to quit this schedule (deadline reached)."
 msgstr ""
 
 #. module: cigogne_planning
@@ -295,6 +314,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__activity_type_id
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__activity_type_id
 msgid "Next Activity Type"
+msgstr ""
+
+#. module: cigogne_planning
+#. odoo-python
+#: code:addons/cigogne_planning/models/schedule_template.py:0
+#, python-format
+msgid "No date defined."
 msgstr ""
 
 #. module: cigogne_planning
@@ -413,7 +439,6 @@ msgstr ""
 
 #. module: cigogne_planning
 #: model:ir.actions.act_window,name:cigogne_planning.schedule_template_action
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__template_id
 #: model:ir.ui.menu,name:cigogne_planning.planning_template_menu
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_template_view_search
 msgid "Template"
@@ -440,6 +465,12 @@ msgstr ""
 #. module: cigogne_planning
 #: model:res.groups,comment:cigogne_planning.group_schedule_user
 msgid "The user will be able to register to schedules."
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__type_id
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__type_id
+msgid "Type"
 msgstr ""
 
 #. module: cigogne_planning
