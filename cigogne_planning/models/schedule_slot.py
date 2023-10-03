@@ -39,6 +39,11 @@ class ScheduleSlot(models.Model):
             ("full", "Full"),
         ],
         compute="_compute_state",
+        store=True,
+    )
+    type_id = fields.Many2one(
+        comodel_name="schedule.template.type",
+        required=True,
     )
     comment = fields.Text()
 
@@ -64,6 +69,7 @@ class ScheduleSlot(models.Model):
                     _("The number of participants cannot be greater than the capacity")
                 )
 
+    @api.depends("participant_ids", "capacity")
     def _compute_state(self):
         for slot in self:
             slot.state = (
@@ -90,7 +96,17 @@ class ScheduleSlot(models.Model):
 
     def quit(self):
         for slot in self.sudo():
-            slot.participant_ids -= self.env.user.partner_id
+            if (
+                slot.type_id.deadline
+                <= (fields.Date.to_date(slot.start.date()) - fields.Date.today()).days
+            ):
+                slot.participant_ids -= self.env.user.partner_id
+            else:
+                raise ValidationError(
+                    _(
+                        "It's no longer possible to quit this schedule (deadline reached)."
+                    )
+                )
 
     def _message_auto_subscribe_followers(self, updated_values, subtype_ids):
         res = super()._message_auto_subscribe_followers(updated_values, subtype_ids)

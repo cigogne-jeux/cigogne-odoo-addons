@@ -55,6 +55,7 @@
                             <field name="allday" />
                         </group>
                         <group>
+                            <field name="type_id" />
                             <field name="user_id" />
                             <field name="capacity" />
                             <field
@@ -97,15 +98,16 @@
                 string="Planning"
                 date_start="start"
                 date_stop="end"
-                color="state"
+                color="type_id"
                 quick_add="False"
                 all_day="allday"
                 event_open_popup="True"
                 hide_time="1"
             >
+                <field name="type_id" filters="True" invisible="1" />
                 <field name="user_id" />
                 <field name="capacity" />
-                <field name="state" filters="True" />
+                <field name="state" />
                 <field name="participant_ids" widget="many2many_tags_avatar" />
                 <field name="comment" />
             </calendar>
@@ -125,6 +127,13 @@
                     string="My schedule"
                     domain="[('is_participant', '=', True)]"
                 />
+                <separator />
+                <filter
+                    name="available"
+                    string="Available"
+                    domain="[('state', '=', 'available')]"
+                />
+                <filter name="full" string="Full" domain="[('state', '=', 'full')]" />
                 <separator />
                 <filter
                     string="Archived"

@@ -4,7 +4,7 @@
 import pytz
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields, models
+from odoo import _, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -13,22 +13,25 @@ class ScheduleTemplate(models.Model):
     _inherit = ["schedule.slot"]
     _description = "Schedule Template"
 
-    template_id = fields.Many2one(comodel_name="schedule.template.type", required=True)
-
 
 class ScheduleTemplateType(models.Model):
     _name = "schedule.template.type"
     _description = "Schedule Template Type"
 
     name = fields.Char()
+    deadline = fields.Integer(
+        help="Deadline (in days) before shedule when it is still possible to quit"
+    )
     date = fields.Date()
 
     def plan(self):
         # this won't work well with localization where week start on sunday
         self.ensure_one()
+        if not self.date:
+            raise ValidationError(_("No date defined."))
         schedules = self.env["schedule.slot"]
         for template in self.env["schedule.template"].search(
-            [("template_id", "=", self.id)]
+            [("type_id", "=", self.id)]
         ):
             plandate = self.date + relativedelta(
                 days=template.start.date().weekday() - self.date.weekday()
@@ -52,7 +55,9 @@ class ScheduleTemplateType(models.Model):
                     "start": start_cor_tz,
                     "end": end_cor_tz,
                     "allday": template.allday,
+                    "capacity": template.capacity,
                     "comment": template.comment,
+                    "type_id": template.type_id.id,
                     "participant_ids": [(6, 0, template.participant_ids.ids)],
                 }
             )

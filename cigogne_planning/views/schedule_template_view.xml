@@ -37,7 +37,7 @@
                             <field name="allday" />
                         </group>
                         <group>
-                            <field name="template_id" />
+                            <field name="type_id" />
                             <field name="user_id" />
                             <field name="capacity" />
                             <field
@@ -63,7 +63,7 @@
                 <field name="end" />
                 <field name="user_id" />
                 <field name="participant_ids" widget="many2many_tags_avatar" />
-                <field name="template_id" />
+                <field name="type_id" />
             </tree>
         </field>
     </record>
@@ -76,13 +76,13 @@
                 string="Planning"
                 date_start="start"
                 date_stop="end"
-                color="template_id"
+                color="type_id"
                 quick_add="False"
                 all_day="allday"
                 event_open_popup="True"
                 hide_time="1"
             >
-                <field name="template_id" filters="True" />
+                <field name="type_id" filters="True" />
                 <field name="user_id" />
                 <field name="capacity" />
                 <field name="participant_ids" widget="many2many_tags_avatar" />
@@ -96,7 +96,7 @@
         <field name="model">schedule.template</field>
         <field name="arch" type="xml">
             <search string="Search Schedule">
-                <field name="template_id" />
+                <field name="type_id" />
                 <field name="name" />
                 <field name="participant_ids" />
                 <field name="user_id" />
@@ -110,7 +110,7 @@
                     <filter
                         string="Template"
                         name="template"
-                        context="{'group_by':'template_id'}"
+                        context="{'group_by':'type_id'}"
                     />
                     <filter
                         string="Organizer"
@@ -153,6 +153,7 @@
         <field name="arch" type="xml">
             <tree editable="bottom">
                 <field name="name" />
+                <field name="deadline" />
                 <field name="date" />
                 <button type="object" name="plan" string="Plan" class="oe_highlight" />
             </tree>
