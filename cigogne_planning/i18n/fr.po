@@ -72,14 +72,9 @@ msgstr ""
 #. module: cigogne_planning
 #: model:ir.model.fields.selection,name:cigogne_planning.selection__schedule_slot__state__available
 #: model:ir.model.fields.selection,name:cigogne_planning.selection__schedule_template__state__available
+#: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_search
 msgid "Available"
 msgstr "Disponible"
-
-#. module: cigogne_planning
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__capacity
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__capacity
-msgid "Capacity"
-msgstr "Capacité"
 
 #. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__comment
@@ -124,6 +119,16 @@ msgid "Date"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__deadline
+msgid "Deadline"
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,help:cigogne_planning.field_schedule_template_type__deadline
+msgid "Deadline (in days) before shedule when it is still possible to quit"
+msgstr "Limite (en jours avant un horaire) après laquelle il n'est plus possible de quitter"
+
+#. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__display_name
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__display_name
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__display_name
@@ -157,6 +162,7 @@ msgstr ""
 #. module: cigogne_planning
 #: model:ir.model.fields.selection,name:cigogne_planning.selection__schedule_slot__state__full
 #: model:ir.model.fields.selection,name:cigogne_planning.selection__schedule_template__state__full
+#: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_search
 msgid "Full"
 msgstr "Plein"
 
@@ -214,6 +220,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__is_participant
 msgid "Is Participant"
 msgstr ""
+
+#. module: cigogne_planning
+#. odoo-python
+#: code:addons/cigogne_planning/models/schedule_slot.py:0
+#, python-format
+msgid "It's no longer possible to quit this schedule (deadline reached)."
+msgstr "Ce n'est plus possible de quitter cet horaire (date limite atteinte)."
 
 #. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot____last_update
@@ -298,6 +311,13 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: cigogne_planning
+#. odoo-python
+#: code:addons/cigogne_planning/models/schedule_template.py:0
+#, python-format
+msgid "No date defined."
+msgstr "Pas de date définie."
+
+#. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_needaction_counter
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_needaction_counter
 msgid "Number of Actions"
@@ -330,6 +350,12 @@ msgid "Organizer"
 msgstr "Responsable"
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__participant_id
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__participant_id
+msgid "Participant"
+msgstr "Participant"
+
+#. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__participant_ids
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__participant_ids
 msgid "Participants"
@@ -338,6 +364,13 @@ msgstr "Participants"
 #. module: cigogne_planning
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_form
 msgid "Participate"
+msgstr "Participer"
+
+#. module: cigogne_planning
+#. odoo-javascript
+#: code:addons/cigogne_planning/static/src/views/slot_calendar/common/slot_calendar_common_popover.xml:0
+#, python-format
+msgid "Participer"
 msgstr "Participer"
 
 #. module: cigogne_planning
@@ -358,6 +391,13 @@ msgstr "Planning"
 #. module: cigogne_planning
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_form
 msgid "Quit"
+msgstr "Quitter"
+
+#. module: cigogne_planning
+#. odoo-javascript
+#: code:addons/cigogne_planning/static/src/views/slot_calendar/common/slot_calendar_common_popover.xml:0
+#, python-format
+msgid "Quitter"
 msgstr "Quitter"
 
 #. module: cigogne_planning
@@ -413,7 +453,6 @@ msgstr ""
 
 #. module: cigogne_planning
 #: model:ir.actions.act_window,name:cigogne_planning.schedule_template_action
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__template_id
 #: model:ir.ui.menu,name:cigogne_planning.planning_template_menu
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_template_view_search
 msgid "Template"
@@ -426,13 +465,6 @@ msgid "Template Type"
 msgstr "Type"
 
 #. module: cigogne_planning
-#. odoo-python
-#: code:addons/cigogne_planning/models/schedule_slot.py:0
-#, python-format
-msgid "The number of participants cannot be greater than the capacity"
-msgstr "Le nombre de participants ne peut pas être plus grand que la capacité"
-
-#. module: cigogne_planning
 #: model:res.groups,comment:cigogne_planning.group_schedule_manager
 msgid "The user will be able to create new schedules."
 msgstr "L'utilisateur pourra créer des nouveaux horaires"
@@ -441,6 +473,12 @@ msgstr "L'utilisateur pourra créer des nouveaux horaires"
 #: model:res.groups,comment:cigogne_planning.group_schedule_user
 msgid "The user will be able to register to schedules."
 msgstr "L'utilisateur pourra s'inscrire aux horaires"
+
+#. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__type_id
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__type_id
+msgid "Type"
+msgstr ""
 
 #. module: cigogne_planning
 #: model:ir.model.fields,help:cigogne_planning.field_schedule_slot__activity_exception_decoration
@@ -452,6 +490,13 @@ msgstr ""
 #: model:res.groups,name:cigogne_planning.group_schedule_user
 msgid "User"
 msgstr "Utilisateur"
+
+#. module: cigogne_planning
+#. odoo-python
+#: code:addons/cigogne_planning/models/schedule_slot.py:0
+#, python-format
+msgid "You can only quit your own schedule."
+msgstr "Tu peux quitter uniquement tes propres horaires."
 
 #. module: cigogne_planning
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_form
