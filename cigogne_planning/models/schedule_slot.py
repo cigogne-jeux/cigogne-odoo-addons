@@ -3,7 +3,7 @@
 
 
 from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError
 from odoo.tools import format_datetime
 
 
@@ -58,7 +58,11 @@ class ScheduleSlot(models.Model):
                 name = (
                     slot.name
                     + format_datetime(self.env, slot.start, dt_format=" HH:mm-")
-                    + format_datetime(self.env, slot.end, dt_format="HH:mm dd.MM.YYYY")
+                    + format_datetime(self.env, slot.end, dt_format="HH:mm")
+                    + " "
+                    + format_datetime(self.env, slot.start, dt_format="dd.MM.YYYY")
+                    + " "
+                    + (slot.participant_id.name if slot.participant_id else "")
                 )
                 res.append((slot.id, name))
             else:
@@ -90,13 +94,15 @@ class ScheduleSlot(models.Model):
 
     def quit(self):
         for slot in self.sudo():
+            if not slot.is_participant:
+                raise UserError(_("You can only quit your own schedule."))
             if (
                 slot.type_id.deadline
                 <= (fields.Date.to_date(slot.start.date()) - fields.Date.today()).days
             ):
                 slot.participant_id = False
             else:
-                raise ValidationError(
+                raise UserError(
                     _(
                         "It's no longer possible to quit this schedule (deadline reached)."
                     )

@@ -12,7 +12,7 @@
     "maintainers": ["jguenat", "i0np"],
     "license": "AGPL-3",
     "depends": [
-        "base",
+        "web",
         "mail",
     ],
     "data": [
@@ -24,6 +24,7 @@
     "assets": {
         "web.assets_backend": [
             "cigogne_planning/static/src/css/calendar.css",
+            "cigogne_planning/static/src/views/**/*",
         ],
     },
 }

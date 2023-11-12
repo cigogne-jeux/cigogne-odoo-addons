@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <!-- Todo : improve slot visual -->
+    <t t-name="cigogne_planning.SlotCalendarCommonRenderer.slot" owl="1">
+        <div class="fc-content">
+            <t t-if="!isTimeHidden">
+                <span class="fc-time" t-esc="startTime" />
+                <t> </t>
+            </t>
+            <div class="o_event_title" t-esc="title" />
+        </div>
+    </t>
+</templates>

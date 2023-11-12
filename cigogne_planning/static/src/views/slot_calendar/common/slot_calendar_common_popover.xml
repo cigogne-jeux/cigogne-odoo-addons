@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t
+        t-name="cigogne_planning.SlotCalendarCommonPopover.footer"
+        t-inherit="web.CalendarCommonPopover.footer"
+        t-inherit-mode="primary"
+        owl="1"
+    >
+        <xpath expr="//t[@t-if='isEventDeletable']" position="after">
+            <a
+                t-if="canParticipate"
+                href="#"
+                class="btn btn-primary"
+                t-on-click="onClickParticipate"
+            >Participer</a>
+            <a
+                t-if="canQuit"
+                href="#"
+                class="btn btn-primary"
+                t-on-click="onClickQuit"
+            >Quitter</a>
+        </xpath>
+    </t>
+</templates>

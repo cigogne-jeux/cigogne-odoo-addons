@@ -92,6 +92,7 @@
         <field name="arch" type="xml">
             <calendar
                 string="Planning"
+                js_class="slot_calendar"
                 date_start="start"
                 date_stop="end"
                 color="state"
