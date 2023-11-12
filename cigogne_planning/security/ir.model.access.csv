@@ -3,3 +3,4 @@ schedule_user,Schedule User,model_schedule_slot,group_schedule_user,1,0,0,0
 schedule_manager,Schedule Manager,model_schedule_slot,group_schedule_manager,1,1,1,1
 schedule_template_manager,Schedule Template Manager,model_schedule_template,group_schedule_manager,1,1,1,1
 schedule_template_type_manager,Schedule Template Type Manager,model_schedule_template_type,group_schedule_manager,1,1,1,1
+cigogne_planning.access_schedule_send_ics,access_schedule_send_ics,cigogne_planning.model_schedule_send_ics,base.group_user,1,1,1,1

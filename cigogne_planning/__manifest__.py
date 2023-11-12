@@ -15,11 +15,13 @@
         "web",
         "mail",
     ],
+    "external_dependencies": {"python": ["icalendar"]},
     "data": [
         "security/planning_security.xml",
         "security/ir.model.access.csv",
         "views/schedule_slot_view.xml",
         "views/schedule_template_view.xml",
+        "wizard/schedule_send_ics.xml",
     ],
     "assets": {
         "web.assets_backend": [

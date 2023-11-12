@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="wizard_schedule_send_ics" model="ir.ui.view">
+        <field name="model">schedule.send.ics</field>
+        <field name="arch" type="xml">
+            <form string="Envoi du planning">
+                <header />
+                <sheet>
+                    <field name="is_manager" invisible="1" />
+                    <div class="oe_title">
+                        <label for="contact_id" />
+                        <h1>
+                            <field
+                                name="contact_id"
+                                attrs="{'readonly':[('is_manager', '=', False)]}"
+                            />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <label for="request_date_from" string="Dates" />
+                            <div class="o_row">
+                                <span class="text-muted">From</span>
+                                <field
+                                    name="request_date_from"
+                                    class="oe_inline"
+                                    widget="daterange"
+                                    options="{'related_end_date': 'request_date_to'}"
+                                />
+                                <span class="text-muted">To</span>
+                                <field
+                                    name="request_date_to"
+                                    class="oe_inline"
+                                    widget="daterange"
+                                    options="{'related_end_date': 'request_date_from'}"
+                                />
+                            </div>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        string="Send"
+                        name="send"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+     </record>
+
+    <record id="action_open_schedule_send_ics" model="ir.actions.act_window">
+        <field name="name">Envoi du planning</field>
+        <field name="res_model">schedule.send.ics</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_schedule_send_ics" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        name="Envoi du planning"
+        id="menu_send_schedule_ics"
+        parent="planning_menu_root"
+        action="action_open_schedule_send_ics"
+        sequence="3"
+    />
+
+</odoo>
