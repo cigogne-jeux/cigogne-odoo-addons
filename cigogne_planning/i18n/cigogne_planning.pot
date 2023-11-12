@@ -14,6 +14,24 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: cigogne_planning
+#. odoo-python
+#: code:addons/cigogne_planning/wizard/schedule_send_ics.py:0
+#, python-format
+msgid " to "
+msgstr ""
+
+#. module: cigogne_planning
+#: model_terms:ir.ui.view,arch_db:cigogne_planning.wizard_schedule_send_ics
+msgid "<span class=\"text-muted\">From</span>"
+msgstr ""
+
+#. module: cigogne_planning
+#: model_terms:ir.ui.view,arch_db:cigogne_planning.wizard_schedule_send_ics
+msgid "<span class=\"text-muted\">To</span>"
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_needaction
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_needaction
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_needaction
 msgid "Action Needed"
@@ -64,6 +82,7 @@ msgid "Archived"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_attachment_count
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_attachment_count
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_attachment_count
 msgid "Attachment Count"
@@ -77,11 +96,21 @@ msgid "Available"
 msgstr ""
 
 #. module: cigogne_planning
+#: model_terms:ir.ui.view,arch_db:cigogne_planning.wizard_schedule_send_ics
+msgid "Cancel"
+msgstr ""
+
+#. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__comment
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__comment
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_form
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_template_view_form
 msgid "Comment"
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__contact_id
+msgid "Contact"
 msgstr ""
 
 #. module: cigogne_planning
@@ -100,6 +129,7 @@ msgid "Create a new template type"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__create_uid
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__create_uid
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__create_uid
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__create_uid
@@ -107,6 +137,7 @@ msgid "Created by"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__create_date
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__create_date
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__create_date
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__create_date
@@ -116,6 +147,11 @@ msgstr ""
 #. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__date
 msgid "Date"
+msgstr ""
+
+#. module: cigogne_planning
+#: model_terms:ir.ui.view,arch_db:cigogne_planning.wizard_schedule_send_ics
+msgid "Dates"
 msgstr ""
 
 #. module: cigogne_planning
@@ -129,6 +165,7 @@ msgid "Deadline (in days) before shedule when it is still possible to quit"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__display_name
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__display_name
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__display_name
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__display_name
@@ -142,12 +179,21 @@ msgid "End"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.actions.act_window,name:cigogne_planning.action_open_schedule_send_ics
+#: model:ir.ui.menu,name:cigogne_planning.menu_send_schedule_ics
+#: model_terms:ir.ui.view,arch_db:cigogne_planning.wizard_schedule_send_ics
+msgid "Envoi du planning"
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_follower_ids
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_follower_ids
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_follower_ids
 msgid "Followers"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_partner_ids
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_partner_ids
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_partner_ids
 msgid "Followers (Partners)"
@@ -173,12 +219,14 @@ msgid "Group By"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__has_message
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__has_message
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__has_message
 msgid "Has Message"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__id
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__id
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__id
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__id
@@ -198,18 +246,21 @@ msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,help:cigogne_planning.field_schedule_send_ics__message_needaction
 #: model:ir.model.fields,help:cigogne_planning.field_schedule_slot__message_needaction
 #: model:ir.model.fields,help:cigogne_planning.field_schedule_template__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,help:cigogne_planning.field_schedule_send_ics__message_has_error
 #: model:ir.model.fields,help:cigogne_planning.field_schedule_slot__message_has_error
 #: model:ir.model.fields,help:cigogne_planning.field_schedule_template__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_is_follower
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_is_follower
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_is_follower
 msgid "Is Follower"
@@ -229,6 +280,7 @@ msgid "It's no longer possible to quit this schedule (deadline reached)."
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics____last_update
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot____last_update
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template____last_update
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type____last_update
@@ -236,6 +288,7 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__write_uid
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__write_uid
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__write_uid
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__write_uid
@@ -243,6 +296,7 @@ msgid "Last Updated by"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__write_date
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__write_date
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__write_date
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__write_date
@@ -250,6 +304,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_main_attachment_id
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_main_attachment_id
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_main_attachment_id
 msgid "Main Attachment"
@@ -261,12 +316,14 @@ msgid "Manager"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_has_error
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_has_error
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_has_error
 msgid "Message Delivery error"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_ids
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_ids
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_ids
 msgid "Messages"
@@ -284,6 +341,7 @@ msgid "My schedule"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__name
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__name
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__name
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__name
@@ -318,24 +376,35 @@ msgid "No date defined."
 msgstr ""
 
 #. module: cigogne_planning
+#. odoo-python
+#: code:addons/cigogne_planning/wizard/schedule_send_ics.py:0
+#, python-format
+msgid "No schedule to send"
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_needaction_counter
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_needaction_counter
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_has_error_counter
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_has_error_counter
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_has_error_counter
 msgid "Number of errors"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,help:cigogne_planning.field_schedule_send_ics__message_needaction_counter
 #: model:ir.model.fields,help:cigogne_planning.field_schedule_slot__message_needaction_counter
 #: model:ir.model.fields,help:cigogne_planning.field_schedule_template__message_needaction_counter
 msgid "Number of messages requiring action"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,help:cigogne_planning.field_schedule_send_ics__message_has_error_counter
 #: model:ir.model.fields,help:cigogne_planning.field_schedule_slot__message_has_error_counter
 #: model:ir.model.fields,help:cigogne_planning.field_schedule_template__message_has_error_counter
 msgid "Number of messages with delivery error"
@@ -401,6 +470,26 @@ msgid "Quitter"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__request_date_from
+msgid "Request Date From"
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__request_date_to
+msgid "Request Date To"
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__request_datetime_from
+msgid "Request Datetime From"
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__request_datetime_to
+msgid "Request Datetime To"
+msgstr ""
+
+#. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__activity_user_id
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__activity_user_id
 msgid "Responsible User"
@@ -411,6 +500,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_form
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_template_view_form
 msgid "Schedule"
+msgstr ""
+
+#. module: cigogne_planning
+#. odoo-python
+#: code:addons/cigogne_planning/wizard/schedule_send_ics.py:0
+#, python-format
+msgid "Schedule "
 msgstr ""
 
 #. module: cigogne_planning
@@ -427,6 +523,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_search
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_template_view_search
 msgid "Search Schedule"
+msgstr ""
+
+#. module: cigogne_planning
+#: model_terms:ir.ui.view,arch_db:cigogne_planning.wizard_schedule_send_ics
+msgid "Send"
 msgstr ""
 
 #. module: cigogne_planning
@@ -492,10 +593,20 @@ msgid "User"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model,name:cigogne_planning.model_schedule_send_ics
+msgid "Wizard: Send ics schedule"
+msgstr ""
+
+#. module: cigogne_planning
 #. odoo-python
 #: code:addons/cigogne_planning/models/schedule_slot.py:0
 #, python-format
 msgid "You can only quit your own schedule."
+msgstr ""
+
+#. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__is_manager
+msgid "are you a manager?"
 msgstr ""
 
 #. module: cigogne_planning
