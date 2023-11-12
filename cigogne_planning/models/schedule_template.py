@@ -55,10 +55,9 @@ class ScheduleTemplateType(models.Model):
                     "start": start_cor_tz,
                     "end": end_cor_tz,
                     "allday": template.allday,
-                    "capacity": template.capacity,
                     "comment": template.comment,
                     "type_id": template.type_id.id,
-                    "participant_ids": [(6, 0, template.participant_ids.ids)],
+                    "participant_id": template.participant_id.id,
                 }
             )
             schedules |= schedule

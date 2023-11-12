@@ -23,6 +23,11 @@ class ScheduleSlot(models.Model):
         comodel_name="res.users",
         default=lambda self: self.env.user,
     )
+    participant_id = fields.Many2one(
+        string="Participant",
+        comodel_name="res.partner",
+        domain=[("user_ids", "!=", False)],
+    )
     participant_ids = fields.Many2many(
         string="Participants",
         comodel_name="res.partner",
@@ -32,7 +37,6 @@ class ScheduleSlot(models.Model):
         compute="_compute_is_participant",
         search="_search_is_participant",
     )
-    capacity = fields.Integer()
     state = fields.Selection(
         selection=[
             ("available", "Available"),
@@ -61,38 +65,28 @@ class ScheduleSlot(models.Model):
                 super().name_get()
         return res
 
-    @api.constrains("participant_ids", "capacity")
-    def _check_participants_capacity(self):
-        for slot in self:
-            if len(slot.participant_ids) > slot.capacity:
-                raise ValidationError(
-                    _("The number of participants cannot be greater than the capacity")
-                )
-
-    @api.depends("participant_ids", "capacity")
+    @api.depends("participant_id")
     def _compute_state(self):
         for slot in self:
-            slot.state = (
-                "full" if len(slot.participant_ids) == slot.capacity else "available"
-            )
+            slot.state = "full" if slot.participant_id else "available"
 
     def _compute_is_participant(self):
         for slot in self:
             slot.is_participant = (
-                True if self.env.user.partner_id in slot.participant_ids else False
+                True if self.env.user.partner_id == slot.participant_id else False
             )
 
     @api.model
     def _search_is_participant(self, operator, operand):
         # Cases ('is_participant', '=', True) or  ('is_participant', '!=', False)
         if (operator == "=" and operand) or (operator == "!=" and not operand):
-            return [("participant_ids", "in", self.env.user.partner_id.ids)]
+            return [("participant_id", "in", self.env.user.partner_id.ids)]
         else:
-            return [("participant_ids", "not in", self.env.user.partner_id.ids)]
+            return [("participant_id", "not in", self.env.user.partner_id.ids)]
 
     def participate(self):
         for slot in self.sudo():
-            slot.participant_ids += self.env.user.partner_id
+            slot.participant_id = self.env.user.partner_id
 
     def quit(self):
         for slot in self.sudo():
@@ -100,7 +94,7 @@ class ScheduleSlot(models.Model):
                 slot.type_id.deadline
                 <= (fields.Date.to_date(slot.start.date()) - fields.Date.today()).days
             ):
-                slot.participant_ids -= self.env.user.partner_id
+                slot.participant_id = False
             else:
                 raise ValidationError(
                     _(
@@ -110,7 +104,6 @@ class ScheduleSlot(models.Model):
 
     def _message_auto_subscribe_followers(self, updated_values, subtype_ids):
         res = super()._message_auto_subscribe_followers(updated_values, subtype_ids)
-        if updated_values.get("participant_ids"):
-            for partnerid in updated_values["participant_ids"][0][2]:
-                res.append((partnerid, subtype_ids, False))
+        if updated_values.get("participant_id"):
+            res.append((updated_values["participant_id"], subtype_ids, False))
         return res

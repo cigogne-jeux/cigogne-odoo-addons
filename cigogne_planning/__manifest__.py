@@ -4,7 +4,7 @@
 {
     "name": "Planning",
     "summary": "Manage planning schedules in a cooperative way",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.1.0",
     "development_status": "Beta",
     "category": "Uncategorized",
     "website": "https://github.com/cigogne-jeux/cigogne-odoo-addons",
@@ -12,6 +12,7 @@
     "maintainers": ["jguenat", "i0np"],
     "license": "AGPL-3",
     "depends": [
+        "base",
         "mail",
     ],
     "data": [

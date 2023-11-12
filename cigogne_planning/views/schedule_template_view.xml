@@ -39,11 +39,7 @@
                         <group>
                             <field name="type_id" />
                             <field name="user_id" />
-                            <field name="capacity" />
-                            <field
-                                name="participant_ids"
-                                widget="many2many_tags_avatar"
-                            />
+                            <field name="participant_id" />
                         </group>
                         <label for="comment" string="Comment" />
                         <field name="comment" />
@@ -62,7 +58,7 @@
                 <field name="start" />
                 <field name="end" />
                 <field name="user_id" />
-                <field name="participant_ids" widget="many2many_tags_avatar" />
+                <field name="participant_id" />
                 <field name="type_id" />
             </tree>
         </field>
@@ -84,8 +80,7 @@
             >
                 <field name="type_id" filters="True" />
                 <field name="user_id" />
-                <field name="capacity" />
-                <field name="participant_ids" widget="many2many_tags_avatar" />
+                <field name="participant_id" />
                 <field name="comment" />
             </calendar>
         </field>
@@ -98,7 +93,7 @@
             <search string="Search Schedule">
                 <field name="type_id" />
                 <field name="name" />
-                <field name="participant_ids" />
+                <field name="participant_id" />
                 <field name="user_id" />
                 <separator />
                 <filter

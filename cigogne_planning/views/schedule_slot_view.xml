@@ -56,12 +56,8 @@
                         </group>
                         <group>
                             <field name="type_id" />
-                            <field name="user_id" />
-                            <field name="capacity" />
-                            <field
-                                name="participant_ids"
-                                widget="many2many_tags_avatar"
-                            />
+                            <field name="user_id" widget="many2one_avatar_user" />
+                            <field name="participant_id" />
                         </group>
                         <label for="comment" string="Comment" />
                         <field name="comment" />
@@ -85,7 +81,7 @@
                 <field name="start" />
                 <field name="end" />
                 <field name="user_id" />
-                <field name="participant_ids" widget="many2many_tags_avatar" />
+                <field name="participant_id" />
             </tree>
         </field>
     </record>
@@ -98,17 +94,15 @@
                 string="Planning"
                 date_start="start"
                 date_stop="end"
-                color="type_id"
+                color="state"
                 quick_add="False"
                 all_day="allday"
                 event_open_popup="True"
                 hide_time="1"
             >
-                <field name="type_id" filters="True" invisible="1" />
                 <field name="user_id" />
-                <field name="capacity" />
-                <field name="state" />
-                <field name="participant_ids" widget="many2many_tags_avatar" />
+                <field name="state" filters="True" />
+                <field name="participant_id" filters="True" avatar_field="avatar_128" />
                 <field name="comment" />
             </calendar>
         </field>
@@ -120,7 +114,7 @@
         <field name="arch" type="xml">
             <search string="Search Schedule">
                 <field name="name" />
-                <field name="participant_ids" />
+                <field name="participant_id" />
                 <field name="user_id" />
                 <filter
                     name="my_schedule"
