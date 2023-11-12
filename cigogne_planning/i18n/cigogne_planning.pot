@@ -77,12 +77,6 @@ msgid "Available"
 msgstr ""
 
 #. module: cigogne_planning
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__capacity
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__capacity
-msgid "Capacity"
-msgstr ""
-
-#. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__comment
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__comment
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_form
@@ -356,6 +350,12 @@ msgid "Organizer"
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__participant_id
+#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__participant_id
+msgid "Participant"
+msgstr ""
+
+#. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__participant_ids
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__participant_ids
 msgid "Participants"
@@ -364,6 +364,13 @@ msgstr ""
 #. module: cigogne_planning
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_form
 msgid "Participate"
+msgstr ""
+
+#. module: cigogne_planning
+#. odoo-javascript
+#: code:addons/cigogne_planning/static/src/views/slot_calendar/common/slot_calendar_common_popover.xml:0
+#, python-format
+msgid "Participer"
 msgstr ""
 
 #. module: cigogne_planning
@@ -384,6 +391,13 @@ msgstr ""
 #. module: cigogne_planning
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.schedule_slot_view_form
 msgid "Quit"
+msgstr ""
+
+#. module: cigogne_planning
+#. odoo-javascript
+#: code:addons/cigogne_planning/static/src/views/slot_calendar/common/slot_calendar_common_popover.xml:0
+#, python-format
+msgid "Quitter"
 msgstr ""
 
 #. module: cigogne_planning
@@ -451,13 +465,6 @@ msgid "Template Type"
 msgstr ""
 
 #. module: cigogne_planning
-#. odoo-python
-#: code:addons/cigogne_planning/models/schedule_slot.py:0
-#, python-format
-msgid "The number of participants cannot be greater than the capacity"
-msgstr ""
-
-#. module: cigogne_planning
 #: model:res.groups,comment:cigogne_planning.group_schedule_manager
 msgid "The user will be able to create new schedules."
 msgstr ""
@@ -482,6 +489,13 @@ msgstr ""
 #. module: cigogne_planning
 #: model:res.groups,name:cigogne_planning.group_schedule_user
 msgid "User"
+msgstr ""
+
+#. module: cigogne_planning
+#. odoo-python
+#: code:addons/cigogne_planning/models/schedule_slot.py:0
+#, python-format
+msgid "You can only quit your own schedule."
 msgstr ""
 
 #. module: cigogne_planning
