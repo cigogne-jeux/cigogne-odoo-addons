@@ -100,6 +100,7 @@
                 all_day="allday"
                 event_open_popup="True"
                 hide_time="1"
+                mode="day"
             >
                 <field name="user_id" />
                 <field name="state" filters="True" />
