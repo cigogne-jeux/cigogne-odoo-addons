@@ -58,7 +58,7 @@ Authors
 Contributors
 ------------
 
--  Julien Guenat <julien@jguenat.ch>
+- Julien Guenat <julien@jguenat.ch>
 
 Maintainers
 -----------

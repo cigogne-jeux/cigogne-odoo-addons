@@ -3,11 +3,12 @@
     <!-- Todo : improve slot visual -->
     <t t-name="cigogne_planning.SlotCalendarCommonRenderer.slot" owl="1">
         <div class="fc-content">
-            <t t-if="!isTimeHidden">
-                <span class="fc-time" t-esc="startTime" />
-                <t> </t>
-            </t>
+            <span class="fc-time" t-esc="startTime" /> -
+            <span class="fc-time" t-esc="endHourLocated" />
             <div class="o_event_title" t-esc="title" />
+            <p>
+                <span t-esc="participant" />
+            </p>
         </div>
     </t>
 </templates>

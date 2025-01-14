@@ -99,13 +99,13 @@
                 quick_add="False"
                 all_day="allday"
                 event_open_popup="True"
-                hide_time="1"
                 mode="day"
             >
                 <field name="user_id" />
                 <field name="state" filters="True" />
                 <field name="participant_id" filters="True" avatar_field="avatar_128" />
                 <field name="comment" />
+                <field name="end_hour_located" invisible="1" />
             </calendar>
         </field>
     </record>

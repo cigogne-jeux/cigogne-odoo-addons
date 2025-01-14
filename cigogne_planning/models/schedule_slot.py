@@ -17,6 +17,7 @@ class ScheduleSlot(models.Model):
     active = fields.Boolean(default=True)
     start = fields.Datetime(required=True, tracking=True)
     end = fields.Datetime(required=True, tracking=True)
+    end_hour_located = fields.Char(compute="_compute_end_hour_located")
     allday = fields.Boolean("All Day")
     user_id = fields.Many2one(
         string="Organizer",
@@ -51,23 +52,17 @@ class ScheduleSlot(models.Model):
     )
     comment = fields.Text()
 
-    def name_get(self):
-        res = []
-        for slot in self:
-            if slot.name and slot.start and slot.end:
-                name = (
-                    slot.name
-                    + format_datetime(self.env, slot.start, dt_format=" HH:mm-")
-                    + format_datetime(self.env, slot.end, dt_format="HH:mm")
-                    + " "
-                    + format_datetime(self.env, slot.start, dt_format="dd.MM.YYYY")
-                    + " "
-                    + (slot.participant_id.name if slot.participant_id else "")
+    @api.depends("end")
+    def _compute_end_hour_located(self):
+        for record in self:
+            if record.end:
+                record.end_hour_located = format_datetime(
+                    self.env,
+                    record.end,
+                    dt_format="HH:mm",
                 )
-                res.append((slot.id, name))
             else:
-                super().name_get()
-        return res
+                record.end_hour_located = False
 
     @api.depends("participant_id")
     def _compute_state(self):

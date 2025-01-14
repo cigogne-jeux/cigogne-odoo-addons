@@ -1,17 +1,8 @@
 /** @odoo-module **/
 
 import {CalendarCommonPopover} from "@web/views/calendar/calendar_common/calendar_common_popover";
-import {Dropdown} from "@web/core/dropdown/dropdown";
-import {DropdownItem} from "@web/core/dropdown/dropdown_item";
-import {useService} from "@web/core/utils/hooks";
 
 export class SlotCalendarCommonPopover extends CalendarCommonPopover {
-    setup() {
-        super.setup();
-        this.user = useService("user");
-        this.orm = useService("orm");
-    }
-
     get canParticipate() {
         return this.props.record.rawRecord.state === "available";
     }
@@ -41,11 +32,7 @@ export class SlotCalendarCommonPopover extends CalendarCommonPopover {
         this.props.close();
     }
 }
-SlotCalendarCommonPopover.components = {
-    ...CalendarCommonPopover.components,
-    Dropdown,
-    DropdownItem,
-};
+
 SlotCalendarCommonPopover.subTemplates = {
     ...CalendarCommonPopover.subTemplates,
     footer: "cigogne_planning.SlotCalendarCommonPopover.footer",
