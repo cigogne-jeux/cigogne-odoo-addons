@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,7 +16,6 @@ msgstr ""
 #. module: cigogne_planning
 #. odoo-python
 #: code:addons/cigogne_planning/wizard/schedule_send_ics.py:0
-#, python-format
 msgid " to "
 msgstr ""
 
@@ -185,12 +184,6 @@ msgid "End"
 msgstr ""
 
 #. module: cigogne_planning
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__end_hour_located
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__end_hour_located
-msgid "End Hour Located"
-msgstr ""
-
-#. module: cigogne_planning
 #: model:ir.actions.act_window,name:cigogne_planning.action_open_schedule_send_ics
 #: model:ir.ui.menu,name:cigogne_planning.menu_send_schedule_ics
 #: model_terms:ir.ui.view,arch_db:cigogne_planning.wizard_schedule_send_ics
@@ -287,16 +280,7 @@ msgstr ""
 #. module: cigogne_planning
 #. odoo-python
 #: code:addons/cigogne_planning/models/schedule_slot.py:0
-#, python-format
 msgid "It's no longer possible to quit this schedule (deadline reached)."
-msgstr ""
-
-#. module: cigogne_planning
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics____last_update
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot____last_update
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template____last_update
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: cigogne_planning
@@ -313,13 +297,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__write_date
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template_type__write_date
 msgid "Last Updated on"
-msgstr ""
-
-#. module: cigogne_planning
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__message_main_attachment_id
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__message_main_attachment_id
-#: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__message_main_attachment_id
-msgid "Main Attachment"
 msgstr ""
 
 #. module: cigogne_planning
@@ -383,14 +360,12 @@ msgstr ""
 #. module: cigogne_planning
 #. odoo-python
 #: code:addons/cigogne_planning/models/schedule_template.py:0
-#, python-format
 msgid "No date defined."
 msgstr ""
 
 #. module: cigogne_planning
 #. odoo-python
 #: code:addons/cigogne_planning/wizard/schedule_send_ics.py:0
-#, python-format
 msgid "No schedule to send"
 msgstr ""
 
@@ -450,7 +425,6 @@ msgstr ""
 #. module: cigogne_planning
 #. odoo-javascript
 #: code:addons/cigogne_planning/static/src/views/slot_calendar/common/slot_calendar_common_popover.xml:0
-#, python-format
 msgid "Participer"
 msgstr ""
 
@@ -477,7 +451,6 @@ msgstr ""
 #. module: cigogne_planning
 #. odoo-javascript
 #: code:addons/cigogne_planning/static/src/views/slot_calendar/common/slot_calendar_common_popover.xml:0
-#, python-format
 msgid "Quitter"
 msgstr ""
 
@@ -517,7 +490,6 @@ msgstr ""
 #. module: cigogne_planning
 #. odoo-python
 #: code:addons/cigogne_planning/wizard/schedule_send_ics.py:0
-#, python-format
 msgid "Schedule "
 msgstr ""
 
@@ -612,7 +584,6 @@ msgstr ""
 #. module: cigogne_planning
 #. odoo-python
 #: code:addons/cigogne_planning/models/schedule_slot.py:0
-#, python-format
 msgid "You can only quit your own schedule."
 msgstr ""
 
