@@ -4,7 +4,6 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
-from odoo.tools import format_datetime
 
 
 class ScheduleSlot(models.Model):
@@ -17,7 +16,6 @@ class ScheduleSlot(models.Model):
     active = fields.Boolean(default=True)
     start = fields.Datetime(required=True, tracking=True)
     end = fields.Datetime(required=True, tracking=True)
-    end_hour_located = fields.Char(compute="_compute_end_hour_located")
     allday = fields.Boolean("All Day")
     user_id = fields.Many2one(
         string="Organizer",
@@ -51,18 +49,6 @@ class ScheduleSlot(models.Model):
         required=True,
     )
     comment = fields.Text()
-
-    @api.depends("end")
-    def _compute_end_hour_located(self):
-        for record in self:
-            if record.end:
-                record.end_hour_located = format_datetime(
-                    self.env,
-                    record.end,
-                    dt_format="HH:mm",
-                )
-            else:
-                record.end_hour_located = False
 
     @api.depends("participant_id")
     def _compute_state(self):
@@ -99,7 +85,7 @@ class ScheduleSlot(models.Model):
             else:
                 raise UserError(
                     _(
-                        "It's no longer possible to quit this schedule (deadline reached)."
+                        "It's no longer possible to quit this schedule (deadline reached)."  # noqa E501
                     )
                 )
 

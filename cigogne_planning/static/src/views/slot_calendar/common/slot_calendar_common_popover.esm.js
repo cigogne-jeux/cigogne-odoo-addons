@@ -1,6 +1,5 @@
-/** @odoo-module **/
-
 import {CalendarCommonPopover} from "@web/views/calendar/calendar_common/calendar_common_popover";
+import {user} from "@web/core/user";
 
 export class SlotCalendarCommonPopover extends CalendarCommonPopover {
     get canParticipate() {
@@ -8,10 +7,7 @@ export class SlotCalendarCommonPopover extends CalendarCommonPopover {
     }
 
     get canQuit() {
-        return (
-            this.env.services.user.partnerId ===
-            this.props.record.rawRecord.participant_id[0]
-        );
+        return user.partnerId === this.props.record.rawRecord.participant_id[0];
     }
 
     async onClickParticipate() {

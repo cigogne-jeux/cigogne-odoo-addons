@@ -15,14 +15,14 @@
                         name="participate"
                         string="Participate"
                         class="oe_highlight"
-                        attrs="{'invisible': ['|', ('is_participant', '=', True), ('state', '=', 'full')]}"
+                        invisible="is_participant or state == 'full'"
                     />
                     <button
                         type="object"
                         name="quit"
                         string="Quit"
                         class="oe_highlight"
-                        attrs="{'invisible': [('is_participant', '!=', True)]}"
+                        invisible="not is_participant"
                     />
                     <field name="state" widget="statusbar" />
                 </header>
@@ -33,7 +33,7 @@
                         name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        attrs="{'invisible': [('active', '=', True)]}"
+                        invisible="active"
                     />
                     <div class="oe_title">
                         <label for="name" string="Name" />
@@ -62,26 +62,22 @@
                         <field name="comment" />
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" />
-                    <field name="activity_ids" />
-                    <field name="message_ids" />
-                </div>
+                <chatter />
             </form>
         </field>
     </record>
 
     <record id="schedule_slot_view_tree" model="ir.ui.view">
-        <field name="name">schedule.slot.view.tree</field>
+        <field name="name">schedule.slot.view.list</field>
         <field name="model">schedule.slot</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
                 <field name="start" />
                 <field name="end" />
                 <field name="user_id" />
                 <field name="participant_id" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -95,7 +91,7 @@
                 date_start="start"
                 date_stop="end"
                 color="state"
-                quick_add="False"
+                quick_create="False"
                 all_day="allday"
                 event_open_popup="True"
                 mode="day"
@@ -104,7 +100,6 @@
                 <field name="state" filters="True" />
                 <field name="participant_id" filters="True" avatar_field="avatar_128" />
                 <field name="comment" />
-                <field name="end_hour_located" invisible="1" />
             </calendar>
         </field>
     </record>
@@ -149,7 +144,7 @@
     <record id="schedule_slot_action" model="ir.actions.act_window">
         <field name="name">Planning</field>
         <field name="res_model">schedule.slot</field>
-        <field name="view_mode">calendar,tree,form</field>
+        <field name="view_mode">calendar,list,form</field>
         <field name="search_view_id" ref="schedule_slot_view_search" />
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

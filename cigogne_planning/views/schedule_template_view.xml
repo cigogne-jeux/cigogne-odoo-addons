@@ -15,7 +15,7 @@
                         name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        attrs="{'invisible': [('active', '=', True)]}"
+                        invisible="active"
                     />
                     <div class="oe_title">
                         <label for="name" string="Name" />
@@ -49,17 +49,17 @@
     </record>
 
     <record id="schedule_template_view_tree" model="ir.ui.view">
-        <field name="name">schedule.template.view.tree</field>
+        <field name="name">schedule.template.view.list</field>
         <field name="model">schedule.template</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
                 <field name="start" />
                 <field name="end" />
                 <field name="user_id" />
                 <field name="participant_id" />
                 <field name="type_id" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -72,7 +72,7 @@
                 date_start="start"
                 date_stop="end"
                 color="type_id"
-                quick_add="False"
+                quick_create="False"
                 all_day="allday"
                 event_open_popup="True"
                 hide_time="1"
@@ -119,7 +119,7 @@
     <record id="schedule_template_action" model="ir.actions.act_window">
         <field name="name">Template</field>
         <field name="res_model">schedule.template</field>
-        <field name="view_mode">calendar,tree,form</field>
+        <field name="view_mode">calendar,list,form</field>
         <field name="search_view_id" ref="schedule_template_view_search" />
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
@@ -142,22 +142,22 @@
     />
 
     <record id="schedule_template_type_view_tree" model="ir.ui.view">
-        <field name="name">schedule.template.type.view.tree</field>
+        <field name="name">schedule.template.type.view.list</field>
         <field name="model">schedule.template.type</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <list editable="bottom">
                 <field name="name" />
                 <field name="deadline" />
                 <field name="date" />
                 <button type="object" name="plan" string="Plan" class="oe_highlight" />
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="schedule_template_type_action" model="ir.actions.act_window">
         <field name="name">Template Type</field>
         <field name="res_model">schedule.template.type</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create a new template type

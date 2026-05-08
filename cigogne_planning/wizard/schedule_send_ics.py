@@ -92,7 +92,7 @@ class ScheduleSendIcs(models.TransientModel):
             {
                 "name": self.name + ".ics",
                 "type": "binary",
-                "datas": base64.encodestring(cal),
+                "datas": base64.b64encode(cal),
                 "res_model": "schedule.send.ics",
                 "res_id": self.id,
                 "mimetype": "text/calendar",
@@ -100,7 +100,7 @@ class ScheduleSendIcs(models.TransientModel):
         )
         ctx = dict(
             default_model="schedule.send.ics",
-            default_res_id=self.id,
+            default_res_ids=self.ids,
             default_body="Planning",
             default_email_from='"La Cigogne" <info@cigogne-jeux.ch>',
             default_author_id=False,

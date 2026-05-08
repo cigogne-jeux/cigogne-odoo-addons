@@ -4,7 +4,7 @@
 {
     "name": "Planning",
     "summary": "Manage planning schedules in a cooperative way",
-    "version": "16.0.1.1.0",
+    "version": "18.0.1.0.0",
     "development_status": "Beta",
     "category": "Uncategorized",
     "website": "https://github.com/cigogne-jeux/cigogne-odoo-addons",
@@ -25,7 +25,7 @@
     ],
     "assets": {
         "web.assets_backend": [
-            "cigogne_planning/static/src/css/calendar.css",
+            "cigogne_planning/static/src/scss/web_calendar.scss",
             "cigogne_planning/static/src/views/**/*",
         ],
     },

@@ -4,7 +4,6 @@
         t-name="cigogne_planning.SlotCalendarCommonPopover.footer"
         t-inherit="web.CalendarCommonPopover.footer"
         t-inherit-mode="primary"
-        owl="1"
     >
         <xpath expr="//t[@t-if='isEventDeletable']" position="after">
             <a
