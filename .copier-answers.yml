@@ -1,10 +1,10 @@
 # Do NOT update manually; changes here will be overwritten by Copier
-_commit: v1.37
+_commit: v1.41
 _src_path: https://github.com/OCA/oca-addons-repo-template.git
-ci: GitHub
+additional_ruff_rules: []
 convert_readme_fragments_to_markdown: true
 enable_checklog_odoo: false
-generate_requirements_txt: false
+generate_requirements_txt: true
 github_check_license: false
 github_ci_extra_env: {}
 github_enable_codecov: false
@@ -13,7 +13,7 @@ github_enable_stale_action: false
 github_enforce_dev_status_compatibility: false
 include_wkhtmltopdf: false
 odoo_test_flavor: OCB
-odoo_version: 16.0
+odoo_version: 18.0
 org_name: La Cigogne - Bar à jeux
 org_slug: cigogne-jeux
 rebel_module_groups: []
@@ -21,6 +21,6 @@ repo_description: ''
 repo_name: Odoo addons for La cigogne - Bar à jeux
 repo_slug: cigogne-odoo-addons
 repo_website: https://github.com/cigogne-jeux/cigogne-odoo-addons
-use_pyproject_toml: false
-use_ruff: false
+use_pyproject_toml: true
+use_ruff: true
 
