@@ -2,7 +2,6 @@
 <!-- Copyright 2023 La cigogne - Bar à jeux
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0) -->
 <odoo>
-
     <record id="schedule_slot_view_form" model="ir.ui.view">
         <field name="name">schedule.slot.view.form</field>
         <field name="model">schedule.slot</field>
@@ -172,5 +171,4 @@
         action="schedule_slot_action"
         sequence="0"
     />
-
 </odoo>

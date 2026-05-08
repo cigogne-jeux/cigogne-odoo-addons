@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <record id="wizard_schedule_send_ics" model="ir.ui.view">
         <field name="model">schedule.send.ics</field>
         <field name="arch" type="xml">
@@ -50,7 +49,7 @@
                 </footer>
             </form>
         </field>
-     </record>
+    </record>
 
     <record id="action_open_schedule_send_ics" model="ir.actions.act_window">
         <field name="name">Envoi du planning</field>
@@ -67,5 +66,4 @@
         action="action_open_schedule_send_ics"
         sequence="3"
     />
-
 </odoo>

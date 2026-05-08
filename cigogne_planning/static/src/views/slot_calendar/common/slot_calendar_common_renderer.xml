@@ -7,8 +7,8 @@
             <span class="fc-time" t-esc="endHourLocated" />
             <div class="o_event_title" t-esc="title" />
             <p>
-                <span t-esc="participant" />
-            </p>
+            <span t-esc="participant" />
+        </p>
         </div>
     </t>
 </templates>
