@@ -1,0 +1,2 @@
+- AI (Claude Code)
+- Julien Guenat (Reviewer) \<<julien@jguenat.ch>\>
