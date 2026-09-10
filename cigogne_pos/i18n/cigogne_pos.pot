@@ -8,11 +8,10 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: cigogne_pos
 #: model:ir.model,name:cigogne_pos.model_account_bank_statement_line
@@ -23,18 +22,18 @@ msgstr ""
 #. odoo-python
 #: code:addons/cigogne_pos/models/pos_session.py:0
 msgid "Cash difference observed during the counting (Loss) - opening"
-msgstr "Écart d'espèces observé lors du comptage (Perte) - ouverture"
+msgstr ""
 
 #. module: cigogne_pos
 #. odoo-python
 #: code:addons/cigogne_pos/models/pos_session.py:0
 msgid "Cash difference observed during the counting (Profit) - opening"
-msgstr "Écart d'espèces observé lors du comptage (Gain) - ouverture"
+msgstr ""
 
 #. module: cigogne_pos
 #: model:ir.model.fields,field_description:cigogne_pos.field_account_bank_statement_line__opening_pos_session_id
 msgid "Opening POS Session"
-msgstr "Session de caisse associée à l'ouverture"
+msgstr ""
 
 #. module: cigogne_pos
 #. odoo-python
@@ -43,8 +42,6 @@ msgid ""
 "Please go on the %s journal and define a Loss Account. This account will be "
 "used to record cash difference."
 msgstr ""
-"Veuillez définir un compte de pertes sur le journal %s. Ce compte sera "
-"utilisé pour comptabiliser les écarts de caisse."
 
 #. module: cigogne_pos
 #. odoo-python
@@ -53,17 +50,14 @@ msgid ""
 "Please go on the %s journal and define a Profit Account. This account will "
 "be used to record cash difference."
 msgstr ""
-"Veuillez définir un compte de profits sur le journal %s. Ce compte sera "
-"utilisé pour comptabiliser les écarts de caisse."
 
 #. module: cigogne_pos
 #: model:ir.model,name:cigogne_pos.model_pos_session
-#, fuzzy
 msgid "Point of Sale Session"
-msgstr "Session de caisse associée à l'ouverture"
+msgstr ""
 
 #. module: cigogne_pos
 #. odoo-python
 #: code:addons/cigogne_pos/models/pos_session.py:0
 msgid "Related Session: %(link)s"
-msgstr "Session associée : %(link)s"
+msgstr ""
