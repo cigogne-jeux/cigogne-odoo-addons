@@ -284,6 +284,11 @@ msgid "It's no longer possible to quit this schedule (deadline reached)."
 msgstr ""
 
 #. module: cigogne_planning
+#: model:ir.model,name:cigogne_planning.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: cigogne_planning
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_send_ics__write_uid
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_slot__write_uid
 #: model:ir.model.fields,field_description:cigogne_planning.field_schedule_template__write_uid
