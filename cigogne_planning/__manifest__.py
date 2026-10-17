@@ -12,6 +12,7 @@
     "maintainers": ["jguenat", "i0np"],
     "license": "AGPL-3",
     "depends": [
+        "account",
         "web",
         "mail",
     ],
